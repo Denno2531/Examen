@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo Saludo Component</title>
+  <style>
+    /* Estilo externo que no afectará al Shadow DOM */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Contenedor para nuestro componente saludo-component -->
+<div id="contenedor-saludo"></div>
+
+<script>
+  // Función para crear el componente saludo-component
+  function crearSaludoComponent() {
+    // Crear un nuevo elemento div que actuará como el contenedor del Shadow DOM
+    const contenedorSaludo = document.getElementById('contenedor-saludo');
+    const shadowRoot = contenedorSaludo.attachShadow({ mode: 'open' });
+
+    // Crear un elemento h1 en el Shadow DOM y establecer el saludo
+    const saludoElement = document.createElement('h1');
+    saludoElement.textContent = '¡Hola, Mundo!';
+
+    // Establecer estilos específicos para el Shadow DOM
+    const styles = document.createElement('style');
+    styles.textContent = `
+      h1 {
+        color: #396FD5;
+      }
+    `;
+
+    // Adjuntar el elemento h1 y los estilos al Shadow DOM
+    shadowRoot.appendChild(styles);
+    shadowRoot.appendChild(saludoElement);
+  }
+
+  // Llamar a la función para crear el componente cuando la página se carga
+  window.onload = crearSaludoComponent;
+</script>
+
+</body>
+</html>

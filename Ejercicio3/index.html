@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="js/my-container.js"></script>
+<script src="js/my-form.js"></script>
+<script src="js/my-header.js"></script>
+<script src="js/my-list.js"></script>
+<title>Uso de slots</title>
+</head>
+<body>
+     <!-- Instancia del Componente Contenedor -->
+    <container-component>
+
+        <!-- Contenido del Encabezado -->
+        <header-component slot="header"></header-component>
+
+        <!-- Contenido de la Lista -->
+        <list-component slot="list">
+        <!-- Elementos de la lista -->
+        <li slot="list-items">Componente 1</li>
+        <li slot="list-items">Componente 2</li>
+        <li slot="list-items">Componente 3</li>
+        </list-component>
+
+        <!-- Contenido del Formulario -->
+        <form-component slot="form">
+        <!-- Campos del formulario -->
+        <label slot="form-fields" for="name">Nombre:</label>
+        <input slot="form-fields" type="text" id="name" name="name">
+        <label slot="form-fields" for="email">Correo:</label>
+        <input slot="form-fields" type="email" id="email" name="email">
+        </form-component>
+
+    </container-component>
+
+</body>
+</html>
